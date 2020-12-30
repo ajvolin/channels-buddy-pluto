@@ -16,9 +16,16 @@ class ChannelsBuddyPlutoServiceProvider extends ServiceProvider
      */
     public function boot(ChannelSourceProviders $sourceProvider)
     {
-        $sourceProvider->registerChannelSourceProvider('pluto', new ChannelSourceProvider(
-            PlutoService::class,
-            'Pluto TV', true, true, 86400, 21600
-        ));
+        $sourceProvider->registerChannelSourceProvider(
+            new ChannelSourceProvider(
+                'pluto',
+                PlutoService::class,
+                'Pluto TV',
+                true,
+                true,
+                86400,
+                21600
+            )
+        );
     }
 }
