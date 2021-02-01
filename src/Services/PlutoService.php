@@ -57,8 +57,7 @@ class PlutoService implements ChannelSource
             );
         })->map(function($channel) {
             return $this->generateChannel($channel);
-        })->sortBy('number')
-        ->keyBy('id');
+        })->keyBy('id');
 
         return new Channels($channels);
     }
@@ -98,7 +97,7 @@ class PlutoService implements ChannelSource
                     '/^announcement|^privacy-policy/',
                     $channel->slug
                 );
-            })->sortBy('number')->keyBy('slug');
+            })->keyBy('slug');
 
             foreach ($guideData as $channel) {
                 $guideEntry = new GuideEntry(
