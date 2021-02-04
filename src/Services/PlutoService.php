@@ -218,9 +218,9 @@ class PlutoService implements ChannelSource
 
     private function getCleanDescription(string $description): string
     {
-        return str_replace('”', '',
-                preg_replace('/(\r\n|\n|\r)/m', ' ', $description)
-            );
+        return preg_replace('/("|“|”)/m', '',
+            preg_replace('/(\r\n|\n|\r)/m', ' ', $description)
+        );
     }
 
     private function getChannelArt(string $image): string
