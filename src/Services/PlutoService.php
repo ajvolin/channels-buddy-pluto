@@ -23,10 +23,60 @@ class PlutoService implements ChannelSource
     protected $httpClient;
 
     protected $genres = [
-        "Children" => ["Kids", "Children & Family", "Kids' TV", "Cartoons", "Animals", "Family Animation", "Ages 2-4", "Ages 11-12"],
-        "News" => ["News + Opinion", "General News"],
-        "Sports" => ["Sports", "Sports & Sports Highlights", "Sports Documentaries"],
-        "Drama" => ["Crime", "Action & Adventure", "Thrillers", "Romance", "Sci-Fi & Fantasy", "Teen Dramas", "Film Noir", "Romantic Comedies", "Indie Dramas", "Romance Classics", "Crime Action", "Action Sci-Fi & Fantasy", "Action Thrillers", "Crime Thrillers", "Political Thrillers", "Classic Thrillers", "Classic Dramas", "Sci-Fi Adventure", "Romantic Dramas", "Mystery", "Psychological Thrillers", "Foreign Classic Dramas", "Classic Westerns", "Westerns", "Sci-Fi Dramas", "Supernatural Thrillers", "Mobster", "Action Classics", "African-American Action", "Suspense", "Family Dramas", "Alien Sci-Fi", "Sci-Fi Cult Classics"]
+        "Children" => [
+            "Kids",
+            "Children & Family",
+            "Kids' TV",
+            "Cartoons",
+            "Animals",
+            "Family Animation",
+            "Ages 2-4",
+            "Ages 11-12"
+        ],
+        "News" => [
+            "News + Opinion",
+            "General News"
+        ],
+        "Sports" => [
+            "Sports",
+            "Sports & Sports Highlights",
+            "Sports Documentaries"
+        ],
+        "Drama" => [
+            "Crime",
+            "Action & Adventure",
+            "Thrillers",
+            "Romance",
+            "Sci-Fi & Fantasy",
+            "Teen Dramas",
+            "Film Noir",
+            "Romantic Comedies",
+            "Indie Dramas",
+            "Romance Classics",
+            "Crime Action",
+            "Action Sci-Fi & Fantasy",
+            "Action Thrillers",
+            "Crime Thrillers",
+            "Political Thrillers",
+            "Classic Thrillers",
+            "Classic Dramas",
+            "Sci-Fi Adventure",
+            "Romantic Dramas",
+            "Mystery",
+            "Psychological Thrillers",
+            "Foreign Classic Dramas",
+            "Classic Westerns",
+            "Westerns",
+            "Sci-Fi Dramas",
+            "Supernatural Thrillers",
+            "Mobster",
+            "Action Classics",
+            "African-American Action",
+            "Suspense",
+            "Family Dramas",
+            "Alien Sci-Fi",
+            "Sci-Fi Cult Classics"
+        ]
     ];
 
     public function __construct()
@@ -153,11 +203,11 @@ class PlutoService implements ChannelSource
                         }
 
                         $originalReleaseDate = Carbon::parse(
-                            $channelAiring->episode->clip->originalReleaseDate
+                            $channelAiring->episode->clip->originalReleaseDate ?? null
                         );
 
                         $firstAiredDate = Carbon::parse(
-                            $channelAiring->episode->firstAired
+                            $channelAiring->episode->firstAired  ?? null
                         );
 
                         $airing->setOriginalReleaseDate($originalReleaseDate);
